@@ -6,23 +6,12 @@ if (process.argv.length === 2) {
     process.exit(1);
 }
 if (process.argv[2] && process.argv[2] === '-key') {
-    
+    //all good
 } else {
-console.log('key is not present.');
-process.exit(1);
+    console.log('key is not present.');
+    process.exit(1);
 }
 const apiKey = process.argv[3];
-
-var domains = [
-    'http://akimboclub.com/',
-    'http://www.skysper.com',
-    'http://myprorenal.com',
-    'http://shop.crumbtheband.com',
-    'http://www.woodchuckusa.com',
-    'http://store.mirandalambert.com',
-    'http://heatheredboho.com',
-    'http://nashvillepack.com',
-]
 
 function makeHttpRequest(url) {
     return new Promise((resolve, reject) => {
@@ -47,10 +36,6 @@ async function fetchPageSpeedForDomain(domain) {
         callPageSpeed(domain, 'mobile'),
     ])
     .then(([desktop, mobile]) => {
-        //console.log("Results for ", domain)
-        //console.log('Response from desktop:', desktop.lighthouseResult.categories.performance.score * 100);
-        //console.log('Response from mobile:', mobile.lighthouseResult.categories.performance.score * 100);
-        // Your logic to handle both responses
         var response=[
             //Utilities.formatDate(new Date(), 'GMT', 'yyyy-MM-dd HH:mm:ss'),
             domain,
@@ -102,7 +87,8 @@ var _filePath = './input.csv';
 var fieldsName = ['url'];
 
 var csvRead = new csvModule(_filePath, fieldsName);
-
+var header="URL,Performance,Accessibility,SEO,Best Practices,PWA,Time to Interactive (TTI - seconds),Speed Index (SI - seconds),First Contentful Paint (FCP - seconds),Largest Contentful Paint (LCP - seconds),Cumulative Layout Shift (CLS - score),Total Blocking Time (TBT - ms),Performance,Accessibility,SEO,Best Practices,PWA,Time to Interactive (TTI - seconds),Speed Index (SI - seconds),First Contentful Paint (FCP - seconds),Largest Contentful Paint (LCP - seconds),Cumulative Layout Shift (CLS - score),Total Blocking Time (TBT - ms)";
+console.log(header);
 csvRead.getCSVJson().then(function(result){
     processDomains(result);
 },function(err){
