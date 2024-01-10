@@ -75,7 +75,8 @@ async function fetchPageSpeedForDomain(domain) {
          console.log(response.join(","));
     })
     .catch(error => {
-        console.error('Error:', error.message);
+        console.log(domain);
+        console.error('Error:', domain, error.message);
     });
 }
 async function processDomains(domains){
