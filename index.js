@@ -1,8 +1,18 @@
 var csvModule = require("read-csv-json")
 const axios = require('axios');
 
-const apiKey = '<REPLACE_API_KEY';
-
+if (process.argv.length === 2) {
+    console.error('key is not present.!');
+    process.exit(1);
+}
+if (process.argv[2] && process.argv[2] === '-key') {
+    
+} else {
+console.log('key is not present.');
+process.exit(1);
+}
+const apiKey = process.argv[3];
+console.log(apiKey)
 var domains = [
     'http://akimboclub.com/',
     'http://www.skysper.com',
