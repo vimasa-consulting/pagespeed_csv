@@ -12,7 +12,7 @@ console.log('key is not present.');
 process.exit(1);
 }
 const apiKey = process.argv[3];
-console.log(apiKey)
+
 var domains = [
     'http://akimboclub.com/',
     'http://www.skysper.com',
