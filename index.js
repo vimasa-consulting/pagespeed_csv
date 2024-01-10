@@ -2,10 +2,7 @@ var csvModule = require("read-csv-json")
 const axios = require('axios');
 
 const apiKey = '<REPLACE_API_KEY';
-let opts = {
-    url: 'https://www.google.com/search?q=chocolates',
-    strategy: 'mobile'
-};
+
 var domains = [
     'http://akimboclub.com/',
     'http://www.skysper.com',
